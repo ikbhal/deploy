@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List Files</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>List Files</h1>
+
+    <% if (error) { %>
+        <div class="error-message">
+            <%= error %>
+        </div>
+    <% } %>
+
+    <h2>Files</h2>
+    <ul>
+        <% filesWithContent.forEach(file => { %>
+            <li>
+                <h3><%= file.name %></h3>
+                <pre><%= file.content %></pre>
+            </li>
+        <% }); %>
+    </ul>
+
+    <a href="/">Back to Scripts</a>
+
+    <script src="/scripts.js"></script>
+</body>
+</html>

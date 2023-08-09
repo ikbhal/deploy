@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Script Manager</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Script Manager</h1>
+
+    <% if (success) { %>
+        <div class="success-message">
+            <%= success %>
+        </div>
+    <% } %>
+
+    <% if (error) { %>
+        <div class="error-message">
+            <%= error %>
+        </div>
+    <% } %>
+
+    <h2>Upload New Script</h2>
+    <form action="/save" method="POST">
+        <label for="script_name">Script Name:</label>
+        <input type="text" name="script_name" required>
+        <label for="script_body">Script Body:</label>
+        <textarea name="script_body" rows="5" required></textarea>
+        <button type="submit">Save</button>
+    </form>
+
+    <h2>Scripts</h2>
+    <ul>
+        <% scripts.forEach(script => { %>
+            <li>
+                <a href="/view/<%= script.id %>"><%= script.name %></a>
+                <a href="/edit/<%= script.id %>">Edit</a>
+                <a href="/delete/<%= script.id %>">Delete</a>
+                <a href="/run/<%= script.id %>">Run</a>
+                <a href="/run/<%= script.id %>/sudo">Run as Sudo</a>
+            </li>
+        <% }); %>
+    </ul>
+
+    <h2>List Files</h2>
+    <a href="/list-files">List Files</a>
+
+    <script src="/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Script</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Edit Script</h1>
+
+    <% if (error) { %>
+        <div class="error-message">
+            <%= error %>
+        </div>
+    <% } %>
+
+    <form action="/edit/<%= script.id %>" method="POST">
+        <label for="script_name">Script Name:</label>
+        <input type="text" name="script_name" value="<%= script.name %>" required>
+        <label for="script_body">Script Body:</label>
+        <textarea name="script_body" rows="10" required><%= script.body %></textarea>
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <a href="/">Back to Scripts</a>
+
+    <script src="/scripts.js"></script>
+</body>
+</html>

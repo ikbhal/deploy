@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Script</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>View Script</h1>
+
+    <% if (error) { %>
+        <div class="error-message">
+            <%= error %>
+        </div>
+    <% } %>
+
+    <h2>Script Details</h2>
+    <p><strong>Name:</strong> <%= script.name %></p>
+    <pre><%= script.body %></pre>
+
+    <a href="/edit/<%= script.id %>">Edit</a>
+    <a href="/delete/<%= script.id %>">Delete</a>
+    <a href="/">Back to Scripts</a>
+
+    <script src="/scripts.js"></script>
+</body>
+</html>
